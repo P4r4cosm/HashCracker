@@ -1,0 +1,16 @@
+[package]
+name = "rust_cracker"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "rust_cracker"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.23", features = ["extension-module"] }
+rayon = "1.10"
+bcrypt = "0.17" # Проверьте актуальную версию
+#rust-argon2 = "2.1" # Или argon2, но rust-argon2 часто бывает быстрее в чистых реализациях
+# Важно: для Argon2 лучше использовать крейт `argon2` с features=["std", "parallel"]
+argon2 = { version = "0.5", features = ["std", "simple"] }
